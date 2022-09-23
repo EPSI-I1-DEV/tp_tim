@@ -6,6 +6,16 @@ stages:          # List of stages for jobs, and their order of execution
   - analyze
   - deploy
 
+services:
+    - postgres:12.2-alpine
+variables:
+  POSTGRES_DB: qieam
+  POSTGRES_USER: Jotunn89
+  POSTGRES_PORT: 5432
+  POSTGRES_HOST_AUTH_METHOD: trust
+  DATABASE_URL_TEST: 'postgres://Jotunn89:@postgres:5432/qieam'
+
+
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
@@ -41,7 +51,3 @@ sonarcloud-check:
     - merge_requests
     - main
     - develop
-
-services:
-  - postgres:12.2-alpine
-
