@@ -8,6 +8,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 services:
     - postgres:12.2-alpine
+    
 variables:
   POSTGRES_DB: qieam
   POSTGRES_USER: Jotunn89
