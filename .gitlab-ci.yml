@@ -8,7 +8,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 services:
     - postgres:12.2-alpine
-    
+
 variables:
   POSTGRES_DB: qieam
   POSTGRES_USER: Jotunn89
@@ -35,9 +35,6 @@ unit_test:
     - export DATABASE_URL_TEST=postgres://Jotunn89:@postgres:5432/qieam
     - mvn clean test
 
-variables:
-  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
 sonarcloud-check:
   image: maven:3.6.3-jdk-11
   cache:
