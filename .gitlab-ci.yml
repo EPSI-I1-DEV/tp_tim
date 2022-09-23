@@ -31,6 +31,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
+    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
     - mvn verify sonar:sonar -Dsonar.projectKey=organisation2
 
   only:
