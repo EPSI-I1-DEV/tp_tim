@@ -32,8 +32,12 @@ sonarcloud-check:
       - .sonar/cache
   script:
     - mvn verify sonar:sonar -Dsonar.projectKey=organisation2
-    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
+
   only:
     - merge_requests
     - main
     - develop
+
+services:
+  - postgres:12.2-alpine
+
