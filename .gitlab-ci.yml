@@ -19,19 +19,19 @@ variables:
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
+    - export DATABASE_URL_TEST=postgres://Jotunn89:@postgres:5432/qieam
     - mvn compile
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
   script:
-    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
+    - export DATABASE_URL_TEST=postgres://Jotunn89:@postgres:5432/qieam
     - mvn clean test
 
 unit_test:
   stage: test
   script:
-    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
+    - export DATABASE_URL_TEST=postgres://Jotunn89:@postgres:5432/qieam
     - mvn clean test
 
 variables:
@@ -44,7 +44,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - export DATABASE_URL_TEST=postgres://gael:@postgres:5432/qieam
+    - export DATABASE_URL_TEST=postgres://Jotunn89:@postgres:5432/qieam
     - mvn verify sonar:sonar -Dsonar.projectKey=organisation2
 
   only:
